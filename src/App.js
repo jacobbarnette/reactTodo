@@ -1,5 +1,15 @@
-function App() {
-  return(<h1>Hello</h1>)
+import React, { Component } from 'react'
+import TaskBar from './components/TaskBar'
+
+
+class App extends Component{
+
+  
+  render() {
+    return(<div>
+      <TaskBar />
+    </div>)
+  }
 }
 
-export default App;
+export default App 
