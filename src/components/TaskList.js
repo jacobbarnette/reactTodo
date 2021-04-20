@@ -1,19 +1,34 @@
-import React from 'react'
-import uniqid from 'uniqid'
+import React, { Component } from 'react'
+import TaskItem from './TaskItem'
 
-const TaskList = (props) => {
-    const { tasks } = props;
-    console.log(tasks)
+
+
+class TaskList extends Component {
+    constructor(props) {
+        super(props);
+
+     
+        }
    
+    
+    render(){
         return(
             <ul>
-                {tasks.map((task) => {
-                    return <li key={uniqid}>{task}</li>
+                {this.props.tasks.map((task, id) => {
+                    return (
+                            <div key={id} >
+                                 <TaskItem tasks={task} handleRemove={this.handleRemove}/>
+                               </div>
+                            
+                    )
                 }
                 )}
-            </ul>
+           </ul>
         )
     }
+
+}  
+
     
 
 export default TaskList

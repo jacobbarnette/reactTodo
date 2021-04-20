@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import TaskList from './TaskList'
+import TaskItem from './TaskItem'
+import nextId from 'react-id-generator'
 
 class TaskBar extends Component {
     constructor(props){
         super(props)
         this.handleChange = this.handleChange.bind(this)
         this.onSubmitTask = this.onSubmitTask.bind(this)
-
+       
         this.state = {
             task: "",
-            tasks: []
+            tasks: [],
+            id: nextId()
         }
     }
 
@@ -26,8 +28,9 @@ class TaskBar extends Component {
             tasks: this.state.tasks.concat(this.state.task),
             task: ""
         })
-        console.log(this.state.tasks)
     }
+       
+    
     render() {
         const { task, tasks } = this.state;
         return(
@@ -49,9 +52,8 @@ class TaskBar extends Component {
                     
             
                 </form>
-                <TaskList tasks={tasks} />
+               <TaskItem tasks={tasks} />
             </div>
-            
         )
     }
 }
